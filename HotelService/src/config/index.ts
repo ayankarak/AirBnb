@@ -11,11 +11,10 @@ function loadEnv() {
 }
 
 type DBConfig = {
-    username: string;
-    password: string;
-    database: string;
-    host: string;
-    dialect: string;
+    DB_HOST: string,
+    DB_USER: string,
+    DB_PASSWORD: string,
+    DB_NAME: string
 }
 
 loadEnv();
@@ -25,9 +24,8 @@ export const serverConfig: ServerConfig = {
 };
 
 export const dbConfig: DBConfig = {
-    username: process.env.DB_user || 'root',
-    password: process.env.DB_password || 'root',
-    database: process.env.Db_name || 'test_db',
-    host: process.env.DB_host || 'localhost',
-    dialect: 'mysql'
+    DB_HOST: process.env.DB_HOST || 'localhost',
+    DB_USER: process.env.DB_USER || 'root',
+    DB_PASSWORD: process.env.DB_PASSWORD || 'root',
+    DB_NAME: process.env.DB_NAME || 'test_db'
 };
